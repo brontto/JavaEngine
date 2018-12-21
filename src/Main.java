@@ -2,7 +2,11 @@ public class Main {
 
     public static void main(String[]args){
 
-        GameLoop loop = new GameLoop();
+
+        Window window = new Window();
+        Renderer renderer = new Renderer(window);
+        GameLoop loop = new GameLoop(window, renderer);
         loop.start();
+
     }
 }

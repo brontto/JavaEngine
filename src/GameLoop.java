@@ -6,9 +6,12 @@ public class GameLoop implements Runnable{
     private boolean running = false;
     private final double UPDATE_CAP = 1.0/60.0;
 
-    public GameLoop(){
+    private Window window;
+    private Renderer renderer;
 
-
+    public GameLoop(Window window, Renderer renderer){
+        this.window = window;
+        this.renderer = renderer;
     }
 
     public void start(){
@@ -63,6 +66,8 @@ public class GameLoop implements Runnable{
 
             if(render){
                 frames++;
+                window.UpdateWindow();
+                renderer.clear();
                 //TODO: render game
             } else {
                 try{
