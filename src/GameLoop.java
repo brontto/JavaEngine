@@ -31,6 +31,10 @@ public class GameLoop implements Runnable{
         double passedTime = 0;
         double unprocessedTime = 0;
 
+        //FPS calculation
+        int framePerSecond = 0;
+        double frameTime = 0;
+        int frames = 0;
 
         while(running){
             render = false;
@@ -40,17 +44,25 @@ public class GameLoop implements Runnable{
             lastTime = firstTime;
 
             unprocessedTime +=passedTime;
+            frameTime +=passedTime;
+
 
             while(unprocessedTime >= UPDATE_CAP){
-
+                //tyhjentää frame jonon
                 unprocessedTime -= UPDATE_CAP;
                 render = true;
                 //TODO: update game
-                System.out.println("update");
+
+                if(frameTime >= 1.0){
+                    frameTime = 0;
+                    framePerSecond = frames;
+                    frames = 0;
+                    System.out.println("FPS: " + framePerSecond);
+                }
             }
 
             if(render){
-
+                frames++;
                 //TODO: render game
             } else {
                 try{
