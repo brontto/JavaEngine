@@ -1,3 +1,4 @@
+import java.awt.event.KeyEvent;
 
 public class GameLoop implements Runnable{
 
@@ -8,10 +9,12 @@ public class GameLoop implements Runnable{
 
     private Window window;
     private Renderer renderer;
+    private Input input;
 
-    public GameLoop(Window window, Renderer renderer){
+    public GameLoop(Window window, Renderer renderer, Input input){
         this.window = window;
         this.renderer = renderer;
+        this.input = input;
     }
 
     public void start(){
@@ -55,6 +58,13 @@ public class GameLoop implements Runnable{
                 unprocessedTime -= UPDATE_CAP;
                 render = true;
                 //TODO: update game
+
+                if(input.isKey(KeyEvent.VK_C)){
+
+                    System.out.println("C is pressed");
+                }
+
+                input.InputUpdate();
 
                 if(frameTime >= 1.0){
                     frameTime = 0;

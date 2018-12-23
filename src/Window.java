@@ -50,14 +50,15 @@ public class Window {
         bufferStrategy.show();
     }
 
-    public int getWidth() {
-        return width;
-    }
+    public float getScale(){return scale;}
+
+    public int getWidth() { return width; }
 
     public int getHeight() {
         return height;
     }
 
+    public JFrame getFrame() {return frame; }
 
     public BufferedImage getBufferedImage() {
         return bufferedImage;

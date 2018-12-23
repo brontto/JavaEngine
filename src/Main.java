@@ -5,7 +5,8 @@ public class Main {
 
         Window window = new Window();
         Renderer renderer = new Renderer(window);
-        GameLoop loop = new GameLoop(window, renderer);
+        Input input = new Input(window);
+        GameLoop loop = new GameLoop(window, renderer, input);
         loop.start();
 
     }
