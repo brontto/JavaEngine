@@ -1,3 +1,7 @@
+package Engine;
+
+import Game.AbstractGame;
+
 import java.awt.event.KeyEvent;
 
 public class GameLoop implements Runnable{
@@ -10,11 +14,14 @@ public class GameLoop implements Runnable{
     private Window window;
     private Renderer renderer;
     private Input input;
+    private AbstractGame game;
 
-    public GameLoop(Window window, Renderer renderer, Input input){
+
+    public GameLoop(Window window, Renderer renderer, Input input, AbstractGame game){
         this.window = window;
         this.renderer = renderer;
         this.input = input;
+        this.game = game;
     }
 
     public void start(){
@@ -57,15 +64,10 @@ public class GameLoop implements Runnable{
                 //tyhjentää frame jonon
                 unprocessedTime -= UPDATE_CAP;
                 render = true;
-                //TODO: update game
-
-                if(input.isKey(KeyEvent.VK_C)){
-
-                    System.out.println("C is pressed");
-                }
-
+                //update GAME
+                game.update();
                 input.InputUpdate();
-
+                //FPS Meter
                 if(frameTime >= 1.0){
                     frameTime = 0;
                     framePerSecond = frames;
@@ -73,12 +75,14 @@ public class GameLoop implements Runnable{
                     System.out.println("FPS: " + framePerSecond);
                 }
             }
-
+            //rending new sitsuation
             if(render){
                 frames++;
                 window.UpdateWindow();
+
                 renderer.clear();
                 //TODO: render game
+                //I think something like game.render();
             } else {
                 try{
                     Thread.sleep(1);
