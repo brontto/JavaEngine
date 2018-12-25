@@ -81,8 +81,8 @@ public class GameLoop implements Runnable{
                 window.UpdateWindow();
 
                 renderer.clear();
-                //TODO: render game
-                //I think something like game.render();
+                game.render();
+
             } else {
                 try{
                     Thread.sleep(1);
