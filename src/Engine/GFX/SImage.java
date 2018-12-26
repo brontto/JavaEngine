@@ -8,9 +8,14 @@ import java.io.IOException;
 public class SImage {
 
     private int width, height;
+    private int offSetWidth, offSetHeight;
     private int[] pixels;
 
+
+
     public SImage(String path){
+        this.offSetHeight = offSetHeight;
+        this.offSetWidth = offSetWidth;
 
         BufferedImage image = null;
 
@@ -24,7 +29,12 @@ public class SImage {
         width = image.getWidth();
         height = image.getHeight();
         pixels = image.getRGB(0, 0, width, height,null, 0 , width);
+    }
 
+    public SImage(String path, int offSetWidth, int offSetHeight){
+        this(path);
+        this.offSetWidth = offSetWidth;
+        this.offSetHeight = offSetHeight;
     }
 
     public int getWidth() {
@@ -49,5 +59,13 @@ public class SImage {
 
     public void setPixels(int[] pixels) {
         this.pixels = pixels;
+    }
+
+    public int getOffSetWidth() {
+        return offSetWidth;
+    }
+
+    public int getOffSetHeight() {
+        return offSetHeight;
     }
 }

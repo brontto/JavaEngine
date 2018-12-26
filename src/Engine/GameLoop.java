@@ -27,6 +27,7 @@ public class GameLoop implements Runnable{
     public void start(){
         thread = new Thread(this);
         thread.run();
+        game.start();
     }
 
     public void stop(){
