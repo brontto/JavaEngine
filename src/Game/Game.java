@@ -46,6 +46,9 @@ public class Game extends AbstractGame {
 
     @Override
     public void update() {
+        for (Entity ent: entities) {
+            ent.update();
+        }
         if(input.isKey(KeyEvent.VK_C)){
 
             System.out.println("C is pressed");
@@ -61,6 +64,9 @@ public class Game extends AbstractGame {
 
     @Override
     public void render() {
+        for (Entity ent: entities) {
+            ent.render(renderer);
+        }
         renderer.drawImage(ukkeli, input.getMouseX() - 10, input.getMouseY() - 10);
         if(explode == true){
             renderer.drawImageTile(explosion, input.getMouseX() + 10, input.getMouseY() + 5,

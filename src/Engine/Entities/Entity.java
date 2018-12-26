@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Entity {
 
     public int positionX, positionY;
-    public ArrayList<Component> components;
-    public ArrayList<SImage> images;
+    private ArrayList<Component> components;
+    private ArrayList<SImage> images;
 
 
     //TODO: some way to add components on object
@@ -17,6 +17,15 @@ public class Entity {
     public Entity(int positionX, int positionY){
         this.positionX = positionX;
         this.positionY = positionY;
+    }
+
+    public <T>Component getComponent(T t){
+        for (Component comp: components) {
+            if(comp.getClass().equals(t.getClass())){
+                return comp;
+            }
+        }
+        return null;
     }
 
     public void update(){
