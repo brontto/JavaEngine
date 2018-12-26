@@ -9,7 +9,7 @@ public class GameLoop implements Runnable{
     private Thread thread;
 
     private boolean running = false;
-    private final double UPDATE_CAP = 1.0/60.0;
+    public static double UPDATE_CAP = 1.0/60.0;
 
     private Window window;
     private Renderer renderer;

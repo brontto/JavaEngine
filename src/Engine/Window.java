@@ -11,7 +11,7 @@ public class Window {
 
     private int width = 320, height = 240;
     private float scale = 4f;
-    private String title = "Stegadon Engine v. 0.3";
+    private String title = "Stegadon Engine v. 0.9";
 
     private JFrame frame;
 
