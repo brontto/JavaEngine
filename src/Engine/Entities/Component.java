@@ -2,7 +2,7 @@ package Engine.Entities;
 
 public abstract class Component {
 
-    private Entity parent;
+    protected Entity parent;
 
     public Component(Entity parentEntity){
         this.parent = parentEntity;

@@ -14,8 +14,8 @@ public class SImage {
 
 
     public SImage(String path){
-        this.offSetHeight = offSetHeight;
-        this.offSetWidth = offSetWidth;
+        this.offSetHeight = 0;
+        this.offSetWidth = 0;
 
         BufferedImage image = null;
 

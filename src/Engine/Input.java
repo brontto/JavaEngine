@@ -28,11 +28,7 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
         window.getCanvas().addMouseMotionListener(this);
         window.getCanvas().addMouseListener(this);
         window.getCanvas().addMouseWheelListener(this);
-
-
-
     }
-
 
 
     public static boolean isKey(int keyCode){
